@@ -1,0 +1,12 @@
+{application, ct_surefire,
+ [
+  {description, ""},
+  {vsn, "0.3"},
+  {registered, []},
+  {applications, [
+                  kernel,
+                  stdlib
+                 ]},
+  {mod, { ct_surefire_app, []}},
+  {env, []}
+ ]}.
