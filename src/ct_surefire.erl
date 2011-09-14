@@ -58,7 +58,7 @@ to_surefire_xml(CtDir, OutputDir) ->
 
 
 find_latest_rundir(Dir) ->
-    Dirs = filelib:wildcard(filename:join([Dir, "ct_run.ct*"])),
+    Dirs = filelib:wildcard(filename:join([Dir, "ct_run.*"])),
     hd(lists:reverse(lists:sort(Dirs))).
 
 available_reports(Dir) ->
