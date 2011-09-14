@@ -193,6 +193,9 @@ sum_duration(Res) ->
 		  Res),
     lists:foldl(fun erlang:'+'/2, 0.0, Durations).				 
 
+% parallel testcases
+parse_duration(?TAG(i, [D])) ->
+    parse_duration(D);
 parse_duration(D) ->
     BS = byte_size(D)-1,
     <<Dura:BS/binary,"s">> = D,
