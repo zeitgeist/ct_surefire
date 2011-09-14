@@ -58,7 +58,7 @@ to_surefire_xml(CtDir, OutputDir) ->
 
 
 find_latest_rundir(Dir) ->
-    Dirs = filelib:wildcard(filename:join([Dir, "ct_run.ct*"])),
+    Dirs = filelib:wildcard(filename:join([Dir, "ct_run.*"])),
     hd(lists:reverse(lists:sort(Dirs))).
 
 available_reports(Dir) ->
@@ -193,6 +193,9 @@ sum_duration(Res) ->
 		  Res),
     lists:foldl(fun erlang:'+'/2, 0.0, Durations).				 
 
+% parallel testcases
+parse_duration(?TAG(i, [D])) ->
+    parse_duration(D);
 parse_duration(D) ->
     BS = byte_size(D)-1,
     <<Dura:BS/binary,"s">> = D,
