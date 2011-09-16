@@ -196,6 +196,7 @@ sum_duration(Res) ->
 % parallel testcases
 parse_duration(?TAG(i, [D])) ->
     parse_duration(D);
+parse_duration(<<"died">>) -> <<"0">>;
 parse_duration(D) ->
     BS = byte_size(D)-1,
     <<Dura:BS/binary,"s">> = D,
